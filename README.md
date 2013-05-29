@@ -43,12 +43,13 @@ GIT_URL="git://github.com/Wysija/barebone.git"
 $ cd tmp/transifex
 $ tx init
 $ tx set --auto-remote  https://www.transifex.com/projects/p/project-name/
-$ tx pull -a
 ```
 
-5. Set the following filter by editing tmp/transifex/.tx/config
+5. Set the following filter by editing tmp/transifex/.tx/config and pull manually the first time:
 ```sh
+# config
 file_filter = project-name-<lang>.po
+$ tx pull -a
 ```
 
 ## Deploy.
