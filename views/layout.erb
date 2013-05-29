@@ -1,0 +1,42 @@
+<!doctype html>
+<!--[if IE 7]>    <html class="ie7" lang="en"> <![endif]-->
+<!--[if IE 8]>    <html class="ie8" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!--> <html lang="en"> <!--<![endif]-->
+
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="description" content="Packzip" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  
+  <link rel="stylesheet" href="css/style.css" />
+  <script src="js/libs/modernizr.js"></script>
+
+  <title> Packzip </title>
+</head>
+
+<body>
+
+  <header>
+    <% unless styled_flash.empty? %>
+  		<%=	styled_flash %>
+    <% end %>
+  </header>
+
+  <section class="main">
+  	<%= yield %>
+  </section>
+
+  <footer>
+    
+  </footer>
+
+  <!-- Scripts -->
+  <script src="js/libs/jquery.js"></script>
+  <script src="js/plugins.js"></script>
+  <script src="js/start.js"></script>
+  <!-- /Scripts -->
+  
+</body>
+</html>

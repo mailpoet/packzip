@@ -1,0 +1,69 @@
+<h1>Packzip</h1>
+<div class="type">
+	<div class="left">
+		<h3>Dev</h3>
+		<% if @last_dev %>
+			<div class="meta">
+				<p><strong><%= @last_dev.version %></strong></p>
+				<p><%= @last_dev.created_at.strftime(fmt='%F %T') %></p>
+			</div>
+			<a class="button" href="<%= @last_dev.url	%>">Download</a>
+		<% end %>
+		<form class="package_form" action="/package" method="post" accept-charset="utf-8">
+			<fieldset>
+				<input type="hidden" name="package[branch]" value="dev" />
+				<input type="submit" name="submit" value="Package" />
+			</fieldset>
+		</form>
+		<h3>Public</h3>
+		<ul class="versions">
+			<% @devs.each do |dev| %>
+				<li>
+					<% if dev.published %>
+						<p class="current button"><%= dev.version %></p>
+					<% else %>
+						<form class="publish_form" action="/publish" method="post" accept-charset="utf-8">
+							<fieldset>
+								<input type="hidden" name="id" value="<%= dev.id %>" />
+								<input type="submit" name="submit" value="<%= dev.version %>" />
+							</fieldset>
+						</form>
+					<% end %>
+				</li>
+			<% end %>
+		</ul>
+	</div>
+	<div class="right">
+		<h3>Master</h3>
+		<% if @last_master %>
+			<div class="meta">
+				<p><strong><%= @last_master.version %></strong></p>
+				<p><%= @last_master.created_at.strftime(fmt='%F %T') %></p>
+			</div>
+			<a class="button" href="<%= @last_master.url	%>">Download</a>
+		<% end %>
+		<form class="package_form" action="/package" method="post" accept-charset="utf-8">
+			<fieldset>
+				<input type="hidden" name="package[branch]" value="master" />
+				<input type="submit" name="submit" value="Package" />
+			</fieldset>
+		</form>
+		<h3>Public</h3>
+		<ul class="versions">
+			<% @masters.each do |master| %>
+				<li>
+					<% if master.published %>
+						<p class="current button"><%= master.version %></p>
+					<% else %>
+						<form class="publish_form" action="/publish" method="post" accept-charset="utf-8">
+							<fieldset>
+								<input type="hidden" name="id" value="<%= master.id %>" />
+								<input type="submit" name="submit" value="<%= master.version %>" />
+							</fieldset>
+						</form>
+					<% end %>
+				</li>
+			<% end %>
+		</ul>
+	</div>
+</div>
