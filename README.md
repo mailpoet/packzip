@@ -49,6 +49,8 @@ $ tx set --auto-remote  https://www.transifex.com/projects/p/project-name/
 ```sh
 # config
 file_filter = project-name-<lang>.po
+```
+```sh
 $ tx pull -a
 ```
 
